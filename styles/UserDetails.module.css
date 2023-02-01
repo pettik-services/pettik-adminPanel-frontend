@@ -1,0 +1,110 @@
+.userContainer{
+    background-color: #1b203d;
+    height: auto;
+    font-family: sans-serif;
+}
+
+.main{
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+}
+.head{
+	padding:20px;
+}
+.colUser{
+	width: 50%;
+	float: left;
+}
+.profile{
+	float: right;
+	width: 160px;
+    display: flex;
+    align-items: center;
+   
+}
+.profile p {
+    margin-bottom: 0rem !important;
+}
+.userListSpan{
+    font-size:30px;cursor:pointer; color: white;
+}
+.profileIcon{
+    float: left;
+    color: white;
+}
+.profile p{
+	color: white;
+	font-weight: 500;
+	margin-left: 15px;
+	font-size: 13.5px;
+}
+.userDetails{
+    margin-left: 300px;
+    padding: 20px;
+    margin-top: 50px;
+}
+.panel1{
+    height: 225px;
+      background: #19182f;
+      padding: 10px 10px 2px 22px;
+  }
+  .panel1 h2{
+    color: #c4c959 !important;
+    font-size: 24px !important;
+  }
+  .deleteicon{
+    color: red;
+  }
+  .udetails p{
+    display: flex;
+    font-size: 17px;
+    color: #fff;
+    line-height: 23px;
+  }
+  .udetails p span{
+    float: right;
+    background-color: transparent;
+    font-size: 15px;
+  }
+  .panel2{
+    height: 325px;
+      background: #19182f;
+      padding: 10px 10px 2px 22px;
+      margin-top: 15px;
+  }
+  .panel2 h2{
+    color: #c4c959 !important;
+    font-size: 24px !important;
+  }
+  .th{
+    text-align: left;
+    padding:15px;
+    color: #ddd;
+    text-align: left;
+    padding:15px !important;
+    border-bottom: 1px solid #81818140;
+  }
+.td{
+    text-align: left;
+    padding:15px;
+    color: #ddd !important;
+    text-align: left;
+    padding:15px !important;
+    border-bottom: 1px solid #81818140;
+}
+.tdIcon{
+  text-align: center !important;
+  padding:15px;
+  color: #ddd !important;
+  text-align: left;
+  padding:15px !important;
+  border-bottom: 1px solid #81818140;
+  cursor: pointer;
+}
+.petdeailsHeader{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+ 

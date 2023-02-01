@@ -1,0 +1,15 @@
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ 
+}
+.deleteicon{
+  color: red;
+  cursor: pointer;
+}
+.padingL{
+  padding-left: 3px;
+}

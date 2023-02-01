@@ -1,0 +1,122 @@
+.userContainer{
+    background-color: #1b203d;
+    height: auto;
+    font-family: sans-serif;
+}
+
+.main{
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+}
+.head{
+	padding:20px;
+}
+.colUser{
+	width: 50%;
+	float: left;
+}
+.profile{
+	float: right;
+	width: 160px;
+    display: flex;
+    align-items: center;
+   
+}
+.profile p {
+    margin-bottom: 0rem !important;
+}
+.userListSpan{
+    font-size:30px;cursor:pointer; color: white;
+}
+.profileIcon{
+    float: left;
+    color: white;
+}
+.profile p{
+	color: white;
+	font-weight: 500;
+	margin-left: 15px;
+	font-size: 13.5px;
+}
+.userDetails{
+    margin-left: 300px;
+    padding: 20px;
+    margin-top: 50px;
+    height: 100vh;
+}
+.panel1{
+    height: auto;
+      background: #19182f;
+      padding: 20px 20px 20px 20px;
+  }
+  .udetails p{
+    display: flex;
+    font-size: 17px;
+    color: #fff;
+    line-height: 15px;
+    font-weight: 600;
+  }
+  .udetails p span{
+    float: right;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .groomingDetails{
+    padding: 1rem;
+    background: #EEEEEE;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+ 
+  .markAsUpcoming {
+    background: #2DD5FA;
+    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.markContainer {
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+.markAsDoneContainer{
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly;
+
+}
+.markAsDoneButon{
+    background: #FACD2D;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.cancel{
+    background: #E82525;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

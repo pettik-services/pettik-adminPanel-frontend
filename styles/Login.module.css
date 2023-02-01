@@ -1,0 +1,66 @@
+.container {
+  background: #19123B;
+  width: 100%;
+}
+
+.loginContainer {
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  background: #212042;
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logoContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.heading {
+  color: #818181;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 33px;
+}
+
+.userInput {
+  text-align: center;
+}
+
+.userName {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 27px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.submitButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 216px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(176,106,252,1) 39%,rgba(116,17,255,1) 101%);
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  font-family: 'IBM Plex Sans';
+  border-radius: 50px;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
