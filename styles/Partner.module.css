@@ -1,4 +1,4 @@
-.userContainer{
+.partnerContainer{
     background-color: #1b203d;
     height: auto;
     font-family: sans-serif;
@@ -42,7 +42,7 @@
 .userDetails{
     margin-left: 300px;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .addUserCol{
     text-align: right;
@@ -101,4 +101,15 @@
     padding:15px !important;
     border-bottom: 1px solid #81818140;
 }
- 
+.appGroIcon{
+    display: flex;
+    justify-content: space-evenly;
+}
+.appGroIconedit{
+    color: green;
+    cursor: pointer;
+}
+.appGroIconDelete{
+    color: rgb(177, 19, 19);
+    cursor: pointer;
+}

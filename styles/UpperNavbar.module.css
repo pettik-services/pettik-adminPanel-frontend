@@ -1,0 +1,39 @@
+.main{
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 300px;
+}
+.head{
+	padding:20px;
+}
+.colUser{
+	width: 50%;
+	float: left;
+}
+.profile{
+	float: right;
+	width: 160px;
+    display: flex;
+    align-items: center;
+   
+}
+.profile p {
+    margin-bottom: 0rem !important;
+}
+.userListSpan{
+    font-size:30px;cursor:pointer; color: white;
+}
+.profileIcon{
+    float: left;
+    color: white;
+    cursor: pointer;
+}
+.profileIconNotification{
+    cursor: pointer;
+}
+.profile p{
+	color: white;
+	font-weight: 500;
+	margin-left: 15px;
+	font-size: 13.5px;
+}

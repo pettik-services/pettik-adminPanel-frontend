@@ -1,13 +1,15 @@
 import styles from "../../styles/AddBlog.module.css";
 import Navbar from "../SideNavbar/SideNavbar";
-import { CKEditor } from "ckeditor4-react";
-import { useState, useEffect } from "react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
+import { useState, useEffect,useRef } from "react";
 import axios from "axios";
-import { Container, Row, Col, Table, Form, Modal } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useSnackbar } from "notistack";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
 const AddBlog = () => {
   const router = useRouter();
@@ -19,10 +21,18 @@ const AddBlog = () => {
     heading: "",
     link: "",
   });
+  
+  const editorRef = useRef()
+  const [editorLoaded, setEditorLoaded] = useState(false)
+  const { CKEditor, ClassicEditor } = editorRef.current || {}
 
-  const change = (e) => {
-    getBlogData(e.editor.getData());
-  };
+
+    const change = (data) => {
+      console.log("editordata",data)
+      getBlogData(data);
+    };
+
+  
 
   
   const handelInput = (e) => {
@@ -74,6 +84,14 @@ const submit = async(formData,blog_data, image) => {
   setimage("");
 };
 
+useEffect(() => {
+  editorRef.current = {
+    // CKEditor: require('@ckeditor/ckeditor5-react'), // depricated in v3
+    CKEditor: require('@ckeditor/ckeditor5-react').CKEditor, // v3+
+    ClassicEditor: require('@ckeditor/ckeditor5-build-classic')
+  }
+  setEditorLoaded(true)
+}, [])
 
 const validateInput = (data,blog_data, image) => {
   if (!data.heading) {
@@ -102,25 +120,10 @@ const validateInput = (data,blog_data, image) => {
   
   return true;
 };
-
-  return (
+  return editorLoaded && (
     <div className={styles.blogContainer}>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.head}>
-          <div className={styles.colUser}>
-            <span className={styles.userListSpan}>Add Blog</span>
-          </div>
-          <div className={styles.colUser}>
-            <div className={styles.profile}>
-              <span className={styles.profileIcon}>
-                <i className="fa fa-user-circle fa-2x"></i>
-              </span>
-              <p>Dinesh Kapri</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UpperNavbar  Navbarheading="Add Blog" />
       <div className={styles.blogData}>
         <div className={styles.panel1}>
           <Container>
@@ -176,12 +179,13 @@ const validateInput = (data,blog_data, image) => {
             <Row className="mt-3">
               <Col>
               <label className={styles.title}>Add Blog Data</label>
-                <CKEditor
-                  initData={blog_data}
-                  onChange={(e) => {
-                    change(e);
-                  }}
-                />
+                  <CKEditor
+                  editor={ClassicEditor}
+                  onChange={ ( event, editor ) => {
+                          const data = editor.getData();
+                          change(data);
+                      } }
+                  />
               </Col>
             </Row>
             <Row className="justify-content-md-center p-3">

@@ -6,6 +6,7 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
+import Link from "next/link";
 
 const UserDetails = () => {
   const router = useRouter();
@@ -14,20 +15,7 @@ const UserDetails = () => {
   const [petData, setPetData] = useState([]);
   const [address, setAddress] = useState([]);
 
-  const performAPICall = async () => {
-    try {
-      const response = await axios.get(
-        `https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/user/${userId}`
-      );
-
-      console.log("response data", response.data.userList.user_details.address);
-      setUserData(response.data.userList.user_details);
-      setPetData(response.data.userList.pet_details);
-      setAddress(response.data.userList.user_details.address);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+ 
   const phoneNumber = (str) => {
       const obj = {
         0: "A",
@@ -54,9 +42,23 @@ const UserDetails = () => {
   };
 
   useEffect(() => {
+    const performAPICall = async () => {
+      try {
+        const response = await axios.get(
+          `https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/user/${userId}`
+        );
+  
+        console.log("response data", response.data.userList.user_details.address);
+        setUserData(response.data.userList.user_details);
+        setPetData(response.data.userList.pet_details);
+        setAddress(response.data.userList.user_details.address);
+      } catch (e) {
+        console.log(e);
+      }
+    };
     performAPICall();
    
-  }, []);
+  }, [userId]);
 
   return (
     <div className={styles.userContainer}>
@@ -71,15 +73,23 @@ const UserDetails = () => {
               <span className={styles.profileIcon}>
                 <i className="fa fa-user-circle fa-2x"></i>
               </span>
-              <p>Dinesh Kapri</p>
+              <p>Prasanjit Prusty</p>
             </div>
           </div>
         </div>
       </div>
+      
       <div className={styles.userDetails}>
+      <Row>
+      <Col></Col>
+      <Col className={styles.userBack}>
+      <Link href="/user"> <button className="btn btn-outline-danger btn-md"><i class="fa fa-arrow-circle-left"></i> BACK</button></Link>
+     </Col>
+      </Row>
         <div className={styles.panel1}>
           <h2>User Information</h2>
           <Container>
+         
             <Row>
               <Col>
                 <div className={styles.udetails}>

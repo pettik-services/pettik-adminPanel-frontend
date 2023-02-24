@@ -13,3 +13,6 @@
 .padingL{
   padding-left: 3px;
 }
+.accordion-body{
+  padding: 0 !important;
+}

@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import { useSnackbar } from "notistack";
 import { FaTrash } from "react-icons/fa";
 import { useRouter } from "next/router";
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
 const AddGrooming = () => {
     const router = useRouter();
@@ -138,21 +139,7 @@ setIncludeData(IncludeArray)
   return (
     <div className={styles.GroomingContainer}>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.head}>
-          <div className={styles.colUser}>
-            <span className={styles.userListSpan}>Add Groomings</span>
-          </div>
-          <div className={styles.colUser}>
-            <div className={styles.profile}>
-              <span className={styles.profileIcon}>
-                <i className="fa fa-user-circle fa-2x"></i>
-              </span>
-              <p>Dinesh Kapri</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UpperNavbar  Navbarheading="Add Grooming" />
       <div className={styles.userDetails}>
         <div className={styles.panel1}>
           <Container>

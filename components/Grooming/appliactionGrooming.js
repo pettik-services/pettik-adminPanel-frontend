@@ -10,7 +10,7 @@ import { faEdit,faTrash } from '@fortawesome/fontawesome-free-solid'
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
 
 const AppliactionGrooming = () => {
@@ -68,21 +68,7 @@ const AppliactionGrooming = () => {
   return (
     <div className={styles.GroomingContainer}>
     <Navbar />
-    <div className={styles.main}>
-        <div className={styles.head}>
-          <div className={styles.colUser}>
-            <span className={styles.userListSpan}>Application Grooming Details</span>
-          </div>
-          <div className={styles.colUser}>
-            <div className={styles.profile}>
-              <span className={styles.profileIcon}>
-                <i className="fa fa-user-circle fa-2x"></i>
-              </span>
-              <p>Dinesh Kapri</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <UpperNavbar  Navbarheading="Application Grooming List" />
       <div className={styles.userDetails}>
         <Container fluid>
           <Row>

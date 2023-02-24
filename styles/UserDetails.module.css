@@ -23,6 +23,10 @@
     align-items: center;
    
 }
+.userBack{
+  margin:15px 15px;
+  text-align: right;
+}
 .profile p {
     margin-bottom: 0rem !important;
 }
@@ -42,7 +46,7 @@
 .userDetails{
     margin-left: 300px;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 .panel1{
     height: 225px;

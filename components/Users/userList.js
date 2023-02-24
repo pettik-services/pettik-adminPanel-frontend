@@ -9,35 +9,18 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Box } from "@mui/system";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
 const Userlist = () => {
   const router = useRouter();
   let [color, setColor] = useState("#ffffff");
   const { enqueueSnackbar } = useSnackbar();
   const [search, setSearch] = useState("");
+  
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const performAPICall = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        "https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/user/list"
-      );
-      console.log("response data", response.data.userList);
-      let userList = response.data.userList || [];
-      for (let i = 0; i < userList.length; i++) {
-        userList[i]["user_details"]["PhoneNo"] = await phoneNumber(
-          userList[i].user_details.userID
-        );
-      }
-
-      setUserData(userList);
-      setLoading(false);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+ 
   const phoneNumber = async (str) => {
     return new Promise((resolve, reject) => {
       const obj = {
@@ -71,27 +54,33 @@ const Userlist = () => {
   };
 
   useEffect(() => {
+    const performAPICall = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          "https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/user/list"
+        );
+        console.log("response data", response.data.userList);
+        let userList = response.data.userList || [];
+        for (let i = 0; i < userList.length; i++) {
+          userList[i]["user_details"]["PhoneNo"] = await phoneNumber(
+            userList[i].user_details.userID
+          );
+        }
+  
+        setUserData(userList);
+        setLoading(false);
+      } catch (e) {
+        console.log(e);
+      }
+    };
     performAPICall();
   }, []);
 
   return (
     <div className={styles.userContainer}>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.head}>
-          <div className={styles.colUser}>
-            <span className={styles.userListSpan}>User List</span>
-          </div>
-          <div className={styles.colUser}>
-            <div className={styles.profile}>
-              <span className={styles.profileIcon}>
-                <i className="fa fa-user-circle fa-2x"></i>
-              </span>
-              <p>Dinesh Kapri</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UpperNavbar  Navbarheading="User List" />
       <div className={styles.userDetails}>
         <Container fluid>
           <Row>

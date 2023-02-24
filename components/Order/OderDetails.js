@@ -9,18 +9,17 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 import Link from "next/link";
 import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
-const GroomingDetails = () => {
-  
-    const { enqueueSnackbar } = useSnackbar();
-  const [groomingdata, setGroomingdata]=useState({});
- 
-  useEffect(()=>{
-   let groomingdata = JSON.parse(localStorage.getItem("groomingdetails"));
-   setGroomingdata(groomingdata);
-  },[])
+const OderDetails = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const [groomingdata, setGroomingdata] = useState({});
+
+  useEffect(() => {
+    let groomingdata = JSON.parse(localStorage.getItem("orderdetails"));
+    setGroomingdata(groomingdata);
+  }, []);
   const markAsUpcoming = async (userID, orderId) => {
     try {
-       await axios.post(
+      await axios.post(
         "https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/update/status",
         {
           uid: userID,
@@ -28,7 +27,7 @@ const GroomingDetails = () => {
           orderID: orderId,
         }
       );
-      let groomingObj = {...groomingdata}
+      let groomingObj = { ...groomingdata };
       groomingObj["status"] = "Upcoming";
       setGroomingdata(groomingObj);
       //groomingdata.status="Upcoming";
@@ -45,7 +44,7 @@ const GroomingDetails = () => {
 
   const markAsDone = async (userID, orderId) => {
     try {
-       await axios.post(
+      await axios.post(
         "https://oo5ux1iqnb.execute-api.us-east-1.amazonaws.com/update/status",
         {
           uid: userID,
@@ -53,12 +52,12 @@ const GroomingDetails = () => {
           orderID: orderId,
         }
       );
-      let groomingObj = {...groomingdata}
+      let groomingObj = { ...groomingdata };
       groomingObj["status"] = "Completed";
       setGroomingdata(groomingObj);
       enqueueSnackbar("Updated Successfully", { variant: "success" });
     } catch (e) {
-        console.log("error message",e.message)
+      console.log("error message", e.message);
       if (e.response && e.response.status === 400) {
         enqueueSnackbar(e.response.data.message, { variant: "error" });
       } else {
@@ -76,7 +75,7 @@ const GroomingDetails = () => {
           orderID: orderId,
         }
       );
-      let groomingObj = {...groomingdata}
+      let groomingObj = { ...groomingdata };
       groomingObj["status"] = "Cancelled";
       setGroomingdata(groomingObj);
       enqueueSnackbar("Updated Successfully", { variant: "success" });
@@ -89,115 +88,125 @@ const GroomingDetails = () => {
     }
   };
 
-  
   return (
     <div className={styles.userContainer}>
       <Navbar />
-      <UpperNavbar  Navbarheading="Grooming Details" />
+      <UpperNavbar  Navbarheading="Order Details" />
       <div className={styles.userDetails}>
-      <Row>
-      <Col></Col>
-      <Col className={styles.userBack}>
-      <Link href="/grooming-services"> <button className="btn btn-outline-danger btn-md"><i class="fa fa-arrow-circle-left"></i> BACK</button></Link>
-     </Col>
-      </Row>
-      <div className={styles.panel1}>
-      <Container>
+        <Row>
+          <Col></Col>
+          <Col className={styles.userBack}>
+            <Link href="/orders">
+              <button className="btn btn-outline-danger btn-md">
+                <i class="fa fa-arrow-circle-left"></i> BACK
+              </button>
+            </Link>
+          </Col>
+        </Row>
+        <div className={styles.panel1}>
+          <Container>
             <Row>
               <Col>
                 <div className={styles.udetails}>
                   <p>
-                  user_selected_time : <span>&nbsp;&nbsp; {groomingdata.user_selected_time}</span>
+                    User Selected Time :
+                    <span>&nbsp;&nbsp; {groomingdata.user_selected_time}</span>
                   </p>
                   <p>
-                  cost : <span>&nbsp;&nbsp;{groomingdata.cost}</span>
+                    Cost : <span>&nbsp;&nbsp;{groomingdata.cost}</span>
                   </p>
                   <p>
-                  orderID : <span>&nbsp;&nbsp;{groomingdata.orderID}</span>
+                    Order ID : <span>&nbsp;&nbsp;{groomingdata.orderID}</span>
                   </p>
                   <p>
-                  pet_addres : <span>&nbsp;&nbsp; {groomingdata.pet_addres}</span>
+                    Pet Addres :
+                    <span>&nbsp;&nbsp; {groomingdata.pet_addres}</span>
                   </p>
                   <p>
-                  booking_date : <span>&nbsp;&nbsp;{groomingdata.booking_date}</span>
+                    Booking Date :
+                    <span>&nbsp;&nbsp;{groomingdata.booking_date}</span>
                   </p>
                   <p>
-                  user_selected_date : <span>&nbsp;&nbsp;{groomingdata.user_selected_date}</span>
+                    User Selected Date :
+                    <span>&nbsp;&nbsp;{groomingdata.user_selected_date}</span>
                   </p>
                 </div>
               </Col>
               <Col>
                 <div className={styles.udetails}>
-                <p>
-                is_completed : <span>&nbsp;&nbsp; {String(groomingdata.is_completed)}</span>
+                  <p>
+                    Is Completed :
+                    <span>
+                      &nbsp;&nbsp; {String(groomingdata.is_completed)}
+                    </span>
                   </p>
                   <p>
-                  pet_name : <span>&nbsp;&nbsp;{groomingdata.pet_name}</span>
+                    Pet Name : <span>&nbsp;&nbsp;{groomingdata.pet_name}</span>
                   </p>
                   <p>
-                  service : <span>&nbsp;&nbsp;{groomingdata.service}</span>
+                    Service : <span>&nbsp;&nbsp;{groomingdata.service}</span>
                   </p>
                   <p>
-                  pet_unique_id : <span>&nbsp;&nbsp;{groomingdata.pet_unique_id}</span>
+                    Pet Unique Id :
+                    <span>&nbsp;&nbsp;{groomingdata.pet_unique_id}</span>
                   </p>
                   <p>
-                  status : <span>&nbsp;&nbsp;{groomingdata.status}</span>
+                    Status : <span>&nbsp;&nbsp;{groomingdata.status}</span>
                   </p>
                 </div>
               </Col>
-              
             </Row>
             <Row>
-            <Col>
-            <div className={styles.markContainer}>
-                {groomingdata.status === "Completed" ? (
-                  <div
-                    className={styles.markAsUpcoming}
-                    onClick={() =>
-                      markAsUpcoming(
-                        groomingdata.user_id,
-                        groomingdata.orderID
-                      )
-                    }
-                  >
-                    Mark as Upcoming
-                  </div>
-                ) : groomingdata.status === "Cancelled" ? (
-                  <div
-                    className={styles.markAsDoneButon}
-                    onClick={() =>
-                      markAsDone(groomingdata.user_id, groomingdata.orderID)
-                    }
-                  >
-                    Mark as Done
-                  </div>
-                ) : (
-                  <div className={styles.markAsDoneContainer}>
+              <Col>
+                <div className={styles.markContainer}>
+                  {groomingdata.status === "Completed" ? (
+                    <div
+                      className={styles.markAsUpcoming}
+                      onClick={() =>
+                        markAsUpcoming(
+                          groomingdata.user_id,
+                          groomingdata.orderID
+                        )
+                      }
+                    >
+                      Mark as Upcoming
+                    </div>
+                  ) : groomingdata.status === "Cancelled" ? (
                     <div
                       className={styles.markAsDoneButon}
                       onClick={() =>
                         markAsDone(groomingdata.user_id, groomingdata.orderID)
                       }
                     >
-                      Mark as DONE
+                      Mark as Done
                     </div>
-                    <div
-                      className={styles.cancel}
-                      onClick={() =>
-                        cancel(groomingdata.user_id, groomingdata.orderID)
-                      }
-                    >
-                      Cancel
+                  ) : (
+                    <div className={styles.markAsDoneContainer}>
+                      <div
+                        className={styles.markAsDoneButon}
+                        onClick={() =>
+                          markAsDone(groomingdata.user_id, groomingdata.orderID)
+                        }
+                      >
+                        Mark as DONE
+                      </div>
+                      <div
+                        className={styles.cancel}
+                        onClick={() =>
+                          cancel(groomingdata.user_id, groomingdata.orderID)
+                        }
+                      >
+                        Cancel
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-              </Col></Row>
+                  )}
+                </div>
+              </Col>
+            </Row>
           </Container>
-      </div>
+        </div>
       </div>
     </div>
   );
 };
-
-export default GroomingDetails;
+export default OderDetails;

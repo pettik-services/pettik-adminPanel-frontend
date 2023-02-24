@@ -19,37 +19,37 @@ const SideNavbar = () => {
     <div>
       <div className={styles.sidenav}>
         <p className={styles.logo}>
-          <span>PETTIK</span>-ADMIN
+          <span>Pettik</span>-Admin
         </p>
 
         <Link href="/user" className={styles.icona}>
-          <i className="fa fa-users icons"></i>&nbsp;&nbsp;USER LIST
+          <i className="fa fa-users icons"></i>&nbsp;&nbsp;User List
         </Link>
-        <Link href="#" className={styles.icona}>
-          <i className="fa fa-users icons"></i>&nbsp;&nbsp;VACCINATIONS
+        <Link href="/orders" className={styles.icona}>
+          <i className="fa fa-users icons"></i>&nbsp;&nbsp;Order List
         </Link>
         <div className={styles.iconadropdown}>
           <ul  className={styles.navul}>
             <li>
-              <i className="fa fa-users icons"></i>&nbsp;&nbsp;GROOMING&nbsp;&nbsp;
+              <i className="fa fa-users icons"></i>&nbsp;&nbsp;Groomings&nbsp;&nbsp;
               <i className="fa fa-caret-down" aria-hidden="true"></i>
               <ul className={styles.dropdown}>
                 <li>
-                  <Link href="/grooming-services" className={styles.navli}>GROMMING SERVICES</Link>
+                  <Link href="/grooming-services" className={styles.navli}>Grooming Services</Link>
                 </li>
                 <li>
-                  <Link href="/application-grooming" className={styles.navli}>GROMMING PLANS</Link>
+                  <Link href="/application-grooming" className={styles.navli}>Grooming Plans</Link>
                 </li>
               </ul>
             </li>
           </ul>
          
         </div>
-        <Link href="#" className={styles.icona}>
-          <i className="fa fa-users icons"></i>&nbsp;&nbsp;APPOINTMENTS
+        <Link href="/partner" className={styles.icona}>
+          <i className="fa fa-users icons"></i>&nbsp;&nbsp;Partner
         </Link>
         <Link href="/blogs" className={styles.icona}>
-          <i className="fa fa-users icons"></i>&nbsp;&nbsp;BLOGS
+          <i className="fa fa-users icons"></i>&nbsp;&nbsp;Blogs
         </Link>
       </div>
     </div>

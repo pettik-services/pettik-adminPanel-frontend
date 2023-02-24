@@ -50,6 +50,10 @@
       background: #19182f;
       padding: 20px 20px 20px 20px;
   }
+  .userBack{
+    margin:15px 15px;
+    text-align: right;
+  }
   .udetails p{
     display: flex;
     font-size: 17px;

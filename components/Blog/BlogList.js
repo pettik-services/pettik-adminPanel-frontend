@@ -12,6 +12,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit,faTrash } from '@fortawesome/fontawesome-free-solid'
 import { useRouter } from "next/router";
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
 
 const BlogList = () => {
   const router = useRouter();
@@ -69,21 +70,7 @@ router.push("/blog_details");
   return (
     <div className={styles.blogContainer}>
       <Navbar />
-      <div className={styles.main}>
-        <div className={styles.head}>
-          <div className={styles.colUser}>
-            <span className={styles.userListSpan}>Blog List</span>
-          </div>
-          <div className={styles.colUser}>
-            <div className={styles.profile}>
-              <span className={styles.profileIcon}>
-                <i className="fa fa-user-circle fa-2x"></i>
-              </span>
-              <p>Dinesh Kapri</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UpperNavbar  Navbarheading="Blog List" />
       <div className={styles.userDetails}>
         <Container fluid>
           <Row>

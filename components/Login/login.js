@@ -56,7 +56,7 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.loginContainer}>
         <div className={styles.logoContainer}>
-          <Image src={logo} alt="logo" width="130" height="120" priority />
+          <Image src={logo} alt="logo" width="130" height="120" />
         </div>
         <div className={styles.heading}>
           Please enter your loginID and Password

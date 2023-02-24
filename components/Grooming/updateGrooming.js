@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import { useSnackbar } from "notistack";
 import { FaTrash } from "react-icons/fa";
 import { useRouter } from "next/router";
+import UpperNavbar from "../UpperNavbar/UpperNavbar";
+
 
 const UpdateGrooming = () => {
   const router = useRouter();
@@ -126,21 +128,7 @@ console.log("plandata",planData.icluded)
   return (
     <div className={styles.GroomingContainer}>
     <Navbar />
-    <div className={styles.main}>
-      <div className={styles.head}>
-        <div className={styles.colUser}>
-          <span className={styles.userListSpan}>Add Groomings</span>
-        </div>
-        <div className={styles.colUser}>
-          <div className={styles.profile}>
-            <span className={styles.profileIcon}>
-              <i className="fa fa-user-circle fa-2x"></i>
-            </span>
-            <p>Dinesh Kapri</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <UpperNavbar  Navbarheading="Update grooming" />
     <div className={styles.userDetails}>
       <div className={styles.panel1}>
         <Container>
@@ -205,8 +193,8 @@ console.log("plandata",planData.icluded)
                   <option value="" selected disabled hidden>
                     Choose pet
                   </option>
-                  <option>Dog</option>
-                  <option>Cat</option>
+                  <option>DOG</option>
+                  <option>CAT</option>
                 </select>
               </div>
             </Col>
